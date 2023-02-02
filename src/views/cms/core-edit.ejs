@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <title>Ethena</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="/static/cms/assets/bundles/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--bootstrap -->
+    <link href="/static/cms/assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/assets/bundles/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="/static/cms/assets/bundles/material/material.min.css">
+    <link rel="stylesheet" href="/static/cms/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="/static/cms/css/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="/static/cms/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/theme-color.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/cms/css/custom.css" type="text/css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/static/images/Cargoflash_Favicon.png" />
+    <!-- Sweet Alert -->
+    <link href="/static/cms/assets/bundles/sweet-alert/sweetalert.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/assets/bundles/summernote/summernote.css" rel="stylesheet"/>
+</head>
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="page-wrapper">
+        <!-- start header -->
+        <%- include ('header.ejs') %>
+        <!-- end header -->
+
+        <!-- start page container -->
+        <div class="page-container">
+
+            <!-- start sidebar menu -->
+            <%- include ('side-nav.ejs') %>
+            <!-- end sidebar menu -->
+
+            <!-- start page content -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <div class="page-bar">
+                        <div class="page-title-breadcrumb">
+                            <div class=" pull-left">
+                                <div class="page-title">Add core</div>
+                            </div>
+                            <ol class="breadcrumb page-breadcrumb pull-right">
+                                <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/cms/dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">Add core</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- start Main content -->
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="card-head">
+                                        <header>Basic Information</header>
+                                    </div>
+                                    <div class="card-body row">
+                                        <div class="col-lg-3 p-t-20">
+                                           <label>Heading</label>
+                                           <input type="text" name="_id" value="<%=core._id%>" style="display:none;">
+                                            <input type="text" name="heading" value="<%=core.heading%>" placeholder="Name" class="form-control input-height"/>
+                                        </div>
+                                        <div class="col-lg-3 p-t-20">
+                                         <label>Description</label>
+                                             <input type="text" name="description" value="<%=core.description%>" placeholder="Sub Heading" class="form-control input-height"/>
+                                         </div>
+                                         <div class="col-lg-3 p-t-20">
+                                             <label>Url</label>
+                                              <input type="text" name="url" value="<%=core.url%>" placeholder="Url" class="form-control input-height"/>
+                                          </div>
+                                        <!-- <div class="col-lg-3 p-t-20">
+                                            <label>Home Description</label>
+                                             <input type="text" name="home_description" value="<%=core.home_description%>" placeholder="Url" class="form-control input-height"/>
+                                         </div> -->
+                                        <div class="col-lg-3 p-t-20">
+                                                <label>Image</label>
+                                                <input type="file" name="image" class="form-control input-height" accept="image/*" />
+                                                <span class="error error_file" style="display: none;" id="error_file">File size too large</span>
+                                                <%if(core.image){%>
+                                                    <img width="40" src="<%=core.image.replace('public', '/static')%>">
+                                                    <%}%>
+                                        </div>
+                                        <!-- <div class="col-lg-3 p-t-20">
+                                                <label>Mobile Image</label>
+                                                <input type="file" name="mobileimage" class="form-control input-height" accept="image/*" />
+                                                <span class="error error_file" style="display: none;" id="error_file">File size too large</span>
+                                                <%if(core.mobileimage){%>
+                                                    <img width="40" src="<%=core.mobileimage.replace('public', '/static')%>">
+                                                    <%}%>
+                                        </div> -->
+                                        <div class="col-lg-3 p-t-20">
+                                            <label>Alt</label>
+                                                <input type="text" name="alt" value="<%=core.alt%>" placeholder="alt" class="form-control input-height"/>
+                                        </div>
+                                       
+                                       <div class="col-lg-12 p-t-20">
+                                        <label> Feature</label>
+                                        <input type="text" id="description" name="feature" value="<%=core.feature%>" class=" form-control input-height" placeholder="Feature" rows="7"/>
+                                     </div>
+                                        <div class="col-lg-12 p-t-20 text-center">
+                                            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- end Main COntent -->
+                </div>
+            </div>
+            <!-- end page content -->
+
+        </div>
+        <!-- end page container -->
+
+        <!-- start footer -->
+        <%- include ('footer.ejs') %>
+        <!-- end footer -->
+    </div>
+    <script src="/static/cms/assets/bundles/jquery/jquery.min.js"></script>
+    <script src="/static/cms/assets/bundles/popper/popper.js"></script>
+    <script src="/static/cms/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/cms/assets/bundles/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/static/cms/assets/bundles/jquery-blockUI/jquery.blockui.min.js"></script>
+    <script src="/static/cms/assets/bundles/jquery.slimscroll/jquery.slimscroll.js"></script>
+    <!-- Common js-->
+    <script src="/static/cms/assets/app.js"></script>
+    <script src="/static/cms/assets/layout.js"></script>
+    <script src="/static/cms/assets/theme-color.js"></script>
+    <!-- Material -->
+    <script src="/static/cms/assets/bundles/material/material.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="/static/cms/assets/bundles/sweet-alert/sweetalert.min.js"></script>
+    <script src="/static/cms/assets/bundles/summernote/summernote.js"></script>
+    <script type="text/javascript">
+       $('.summernote').summernote({
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['insert', ['link', 'picture']],
+                ['view', ['codeview']],
+            ],
+            placeholder: 'Enter Page Description',
+            height: 200
+        });
+        <%if(response =='success') { %>
+            swal("Success!", "<%=msg%>", "success");
+        <%} else if(response =='error') {%>
+            swal("Error!", "<%=msg%>", "error");
+        <%}%>
+      </script>
+        <script>
+            function check_image_filesize(ele) {
+                if(ele.files[0].size > (100 * 1024))
+                {
+                    document.getElementById("error_file").style.display="block";
+                    ele.value = "";
+                }
+            }
+            function check_image_filesize1(ele) {
+                if(ele.files[0].size > (100 * 1024))
+                {
+                    document.getElementById("error_file1").style.display="block";
+                    ele.value = "";
+                }
+            }
+            function check_image_filesize2(ele) {
+                if(ele.files[0].size > (100 * 1024))
+                {
+                    document.getElementById("error_file2").style.display="block";
+                    ele.value = "";
+                }
+            }
+            function check_image_filesize3(ele) {
+                if(ele.files[0].size > (100 * 1024))
+                {
+                    document.getElementById("error_file3").style.display="block";
+                    ele.value = "";
+                }
+            }
+            </script>
+</body>
+
+</html>

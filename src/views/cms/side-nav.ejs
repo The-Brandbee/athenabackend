@@ -1,0 +1,653 @@
+<%
+    const access_rights = {
+        "blog": ["BLOG_USER", "ADMINISTRATOR"],
+        "about": ["ADMINISTRATOR"],
+         "careers": ["ADMINISTRATOR"],
+         "contact": ["ADMINISTRATOR"],
+         "event" : ["ADMINISTRATOR"],
+         "home": ["ADMINISTRATOR"],
+         "pressrelease": ["ADMINISTRATOR"],
+         "resource": ["ADMINISTRATOR"],
+         "staticpages": ["ADMINISTRATOR"],
+         "solution": ["ADMINISTRATOR"]
+    };
+%>
+<!-- start sidebar menu -->
+<div class="sidebar-container">
+    <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+        <div id="remove-scroll" class="left-sidemenu">
+            <ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                <li class="sidebar-toggler-wrapper hide">
+                    <div class="sidebar-toggler">
+                        <span></span>
+                    </div>
+                </li>
+                <li class="sidebar-user-panel">
+                    <div class="user-panel">
+                      <!--  <div class="pull-left image">
+                            <img src="/static/img/blank.png" class="img-circle user-img-circle" alt="User Image" />
+                        </div>-->
+                        <div class="pull-left info">
+                            <!-- <p><b><%=passport.user.firstName%> <%=passport.user.lastName%></b>
+                            <br></p> -->
+							<p><small><%=passport.user.email%></small></p>
+                            <p><b><i><%=passport.user.role%></i></b></p>
+                            <!-- <a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline">Online</span></a> -->
+                        </div>
+                    </div>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">person</i>
+                        <span class="title">Review</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="/cms/review/add" class="nav-link ">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="title">Add Review</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/cms/review/manage" class="nav-link ">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="title">Manage Review</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+                <%if(access_rights.home.includes(passport.user.role)){%>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-toggle">
+                            <i class="material-icons">person</i>
+                            <span class="title">Hadder</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item  ">
+                                <a href="/cms/mainhadder/add" class="nav-link ">
+                                    <i class="fa fa-plus-square"></i>
+                                    <span class="title">Add Main Hadder</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                    <a href="/cms/mainhadder/manage" class="nav-link ">
+                                        <i class="fa fa-plus-square"></i>
+                                        <span class="title">Manage Main Hadder</span>
+                                    </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="/cms/hadder/add" class="nav-link ">
+                                    <i class="fa fa-plus-square"></i>
+                                    <span class="title">Add Hadder</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                    <a href="/cms/hadder/manage" class="nav-link ">
+                                        <i class="fa fa-plus-square"></i>
+                                        <span class="title">Manage Hadder</span>
+                                    </a>
+                            </li>
+                           
+                           
+                        </ul>
+                    </li>
+                    
+
+                    <li class="nav-item">
+                       <a href="#" class="nav-link nav-toggle">
+                           <i class="material-icons">person</i>
+                           <span class="title">Home Banner</span>
+                           <span class="arrow"></span>
+                       </a>
+                       <ul class="sub-menu">
+                           <li class="nav-item  ">
+                               <a href="/cms/homebanner/add" class="nav-link ">
+                                   <i class="fa fa-plus-square"></i>
+                                   <span class="title">Add Home Banner</span>
+                               </a>
+                           </li>
+                           <li class="nav-item  ">
+                                   <a href="/cms/homebanner/manage" class="nav-link ">
+                                       <i class="fa fa-plus-square"></i>
+                                       <span class="title">Manage Home Banner</span>
+                                   </a>
+                           </li>
+                          
+                       </ul>
+                   </li>
+                   <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">person</i>
+                        <span class="title">About Us</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="/cms/about/add" class="nav-link ">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="title">Add About Us</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                                <a href="/cms/about/manage" class="nav-link ">
+                                    <i class="fa fa-plus-square"></i>
+                                    <span class="title">Manage About Us</span>
+                                </a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                <li class="nav-item">
+                 <a href="#" class="nav-link nav-toggle">
+                     <i class="material-icons">person</i>
+                     <span class="title">Core Value</span>
+                     <span class="arrow"></span>
+                 </a>
+                 <ul class="sub-menu">
+                     <li class="nav-item  ">
+                         <a href="/cms/core/add" class="nav-link ">
+                             <i class="fa fa-plus-square"></i>
+                             <span class="title">Add Core Value</span>
+                         </a>
+                     </li>
+                     <li class="nav-item  ">
+                             <a href="/cms/core/manage" class="nav-link ">
+                                 <i class="fa fa-plus-square"></i>
+                                 <span class="title">Manage Core Value</span>
+                             </a>
+                     </li>
+                    
+                 </ul>
+             </li>
+
+             <li class="nav-item">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="material-icons">person</i>
+                    <span class="title">Awards</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/cms/awards/add" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Add Awards Value</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                            <a href="/cms/awards/manage" class="nav-link ">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="title">Manage Awards Value</span>
+                            </a>
+                    </li>
+                   
+                </ul>
+            </li>
+            <li class="nav-item">
+               <a href="#" class="nav-link nav-toggle">
+                   <i class="material-icons">person</i>
+                   <span class="title">Leadership</span>
+                   <span class="arrow"></span>
+               </a>
+               <ul class="sub-menu">
+                   <li class="nav-item  ">
+                       <a href="/cms/leadership/add" class="nav-link ">
+                           <i class="fa fa-plus-square"></i>
+                           <span class="title">Add Leadership Value</span>
+                       </a>
+                   </li>
+                   <li class="nav-item  ">
+                           <a href="/cms/leadership/manage" class="nav-link ">
+                               <i class="fa fa-plus-square"></i>
+                               <span class="title">Manage Leadership Value</span>
+                           </a>
+                   </li>
+                  
+               </ul>
+           </li>
+
+           <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Corporate Performance</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/corporate/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add corporate performance Value</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                        <a href="/cms/corporate/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage corporate performance Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Pluse</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/pluse/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add pluse Value</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                        <a href="/cms/pluse/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage pluse Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Innovation</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/innovation/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Innovation Value</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                        <a href="/cms/innovation/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Innovation Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Foundation</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/foundation/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Foundation Value</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                        <a href="/cms/foundation/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Foundation Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Footer</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/footer/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Footer Value</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/footer/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Footer Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Investor Relations</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/investor/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Investor Relations Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/investor/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Investor Relations Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Static Page</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/staticpages/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Static Page Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/staticpages/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Static Page Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Static Content</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/staticcontent/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Static Content Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/staticcontent/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Static Content Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Leadership Banner</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/leadershipbanner/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Leadership Banner Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/leadershipbanner/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Leadership Banner Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Leadership Page</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/leadershippage/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Leadership Page Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/leadershippage/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Leadership Page Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Leadership Feature</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/leadershipfeature/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Leadership Feature Value</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/leadershipfeature/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Leadership Feature Value</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Brand</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/brand/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Brand</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/brand/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Brand</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">partnership</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/partnership/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add partnership</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/partnership/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage partnership</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current partner</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/currentpatner/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Current partner</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/currentpatner/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Current partner</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current Events</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/events/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add events</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/events/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage events</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current Events Banner</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/eventsbanner/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add events banner</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/eventsbanner/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage events banner</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current Overview</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/overview/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add overview</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/overview/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage overview</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current Blogs</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/blogs/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Blogs</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/blogs/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Blogs</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">person</i>
+                <span class="title">Current Financials</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="/cms/financials/add" class="nav-link ">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="title">Add Financials</span>
+                    </a>    
+                </li>
+                <li class="nav-item">
+                        <a href="/cms/financials/manage" class="nav-link ">
+                            <i class="fa fa-plus-square"></i>
+                            <span class="title">Manage Financials</span>
+                        </a>
+                </li>
+               
+            </ul>
+        </li>
+                   <%}%>
+                  
+        </div>
+    </div>
+</div>
+<!-- end sidebar menu -->

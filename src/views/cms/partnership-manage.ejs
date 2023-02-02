@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <title>Ethena</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="/static/cms/assets/bundles/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--bootstrap -->
+    <link href="/static/cms/assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="/static/cms/assets/bundles/material/material.min.css">
+    <link rel="stylesheet" href="/static/cms/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="/static/cms/css/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="/static/cms/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/static/cms/css/theme-color.css" rel="stylesheet" type="text/css" />
+    <!-- data tables -->
+    <link href="/static/cms/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Sweet Alert -->
+    <link href="/static/cms/assets/bundles/sweet-alert/sweetalert.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/static/images/Cargoflash_Favicon.png" />
+</head>
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="page-wrapper">
+        <!-- start header -->
+        <%- include ('header.ejs') %>
+        <!-- end header -->
+
+        <!-- start page container -->
+        <div class="page-container">
+
+            <!-- start sidebar menu -->
+            <%- include ('side-nav.ejs') %>
+            <!-- end sidebar menu -->
+
+            <!-- start page content -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <div class="page-bar">
+                        <div class="page-title-breadcrumb">
+                            <div class=" pull-left">
+                                <div class="page-title">Manage partnership</div>
+                            </div>
+                            <ol class="breadcrumb page-breadcrumb pull-right">
+                                <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/cms/dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">Manage partnership</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-topline-aqua">
+                                <div class="card-head">
+                                    <header>All partnership</header>
+                                </div>
+                                <div class="card-body ">
+                                    <table id="datatable" class="display" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Heading</th>
+                                                <th>Description</th>
+                                                <th>Image</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%for (var i = 0; i < partnership.length; i++) {%>
+                                            <tr>
+                                                <td><%=partnership[i].heading%></td>
+                                                <td><%=partnership[i].description%></td>
+                                                <td>	 <img src='<%=partnership[i].image?partnership[i].image.replace("public/", "/static/"):""%>' alt="" width="40"> </td>
+                                                <td>
+                                                    <a href="/cms/partnership/edit/<%=partnership[i]._id%>"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                    <a data-toggle="modal" data-id="<%=partnership[i]._id%>" class="delete"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                                </td>
+                                            </tr>
+                                            <%}%>
+                                        </tbody>
+                                       <!--  <tfoot>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Priority</th>
+                                                <th>Status</th>
+                                                <th>Business Potential</th>
+                                                <th>Created AT</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot> -->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page content -->
+
+        </div>
+        <!-- end page container -->
+
+        <!-- start footer -->
+        <%- include ('footer.ejs') %>
+        <!-- end footer -->
+    </div>
+    <script src="/static/cms/assets/bundles/jquery/jquery.min.js"></script>
+    <script src="/static/cms/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/cms/assets/bundles/jquery-blockUI/jquery.blockui.min.js"></script>
+    <script src="/static/cms/assets/bundles/jquery.slimscroll/jquery.slimscroll.js"></script>
+    <script src="/static/cms/assets/bundles/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="/static/cms/assets/bundles/moment/moment.min.js"></script>
+    <!-- data tables -->
+    <script src="/static/cms/assets/bundles/datatables/jquery.dataTables.min.js"></script>
+    <script src="/static/cms/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+    <!-- Common js-->
+    <script src="/static/cms/assets/app.js"></script>
+    <script src="/static/cms/assets/layout.js"></script>
+    <script src="/static/cms/assets/theme-color.js"></script>
+    <!-- Material -->
+    <script src="/static/cms/assets/bundles/material/material.min.js"></script>
+    <!-- Sweet Alert -->
+    <!-- <script src="/static/cms/assets/bundles/sweet-alert/sweetalert.min.js"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+        });
+
+        $(document).ready(function(){
+            $(document).on("click",".delete", function(){ // Click to only happen on announce links
+                    myId = $(this).data('id'); 
+               
+                    swal({
+                            title: "Delete",
+                            text: "Are you sure you want to delete",
+                            icon: "warning",
+                            buttons:true,
+                        }).then((resp) => {
+                            if (resp) {
+                                let response = deletedata(myId);
+                                if(response.success)
+                                {
+                                    window.location.href=window.location.href;
+                                }
+                                else{
+                                    alert('Something went wrong try again');
+                                }
+                            }
+                        });
+                });
+                function deletedata(id) {
+                    let result = {success: false};
+            $.ajax({
+                type: "POST",
+                url: '/cms/partnership/delete',
+                async: false,
+                data: {
+                    id: id
+                },
+                success: function(data, status, xhr) {
+                    result =data;
+                }
+            });
+            return result;
+        }
+        });
+    </script>
+</body>
+
+</html>

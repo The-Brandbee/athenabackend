@@ -1,0 +1,39 @@
+@media only screen and (min-width: 2024px) {
+.maxfoundation-main{background-size: 60%;}
+.carousel-caption{top: 40%; width: 36%}
+.carousel-caption p{width: 830px;}
+}
+@media only screen and (max-width: 530px) {
+.header{padding: 10px 0px}
+.carousel-inner > .item > img {
+    width: 100%;
+    height: 300px;
+}
+.carousel-caption{width: 90%}
+.carousel-caption p {font-size: 16px; margin-bottom: 10px;}
+.carousel-caption h5 {font-size: 16px; margin-bottom: 10px;}
+.welcome-leftdiv {width: 100%;}
+.welcome-rightdiv{width: 100%; padding: 15px 15px 15px 15px;}
+.welcome-rightdiv h1{font-size: 26px;}
+.ourcorevalue-main {background-image: none; background-color: #083160;}
+.keyfinancialdiv h3 img {padding-left: 20px;}
+.driving-main h3 {font-size: 26px;}
+.driving-main img{width: 100%}
+.driving-content-div{padding: 15px 0px 15px 0px;}
+.corporate-main{padding-bottom: 0px;}
+.corporate-div{padding: 50px 15px;}
+.corporate-div h3{text-align: center; margin-bottom: 30px; width: auto;}
+.corporate-div h5{font-size: 18px;}
+
+.maxfoundation-main .max-foundation-img{width: 100%}
+.maxfoundation-content {width: 100%; float: left; padding: 0px 0px 30px 0px;}
+.maxfoundation-crossleft img{width: 50px;}
+.maxfoundation-main{background-position: bottom right; margin-bottom: 0px;}
+.maxfoundation-content img {margin-bottom: 30px;}
+.foundation-logo{width: 100%}
+
+.twitter-main h3{font-size: 26px;}
+
+.awards-div p{min-height: auto; margin-bottom: 30px;}
+.twitter-main p {font-size: 20px;}
+}

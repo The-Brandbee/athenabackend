@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>Max India Limited </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/static/css/bootstrap.css" />
+
+<link rel="stylesheet" href="/static/css/style.css" />
+<link rel="stylesheet" href="/static/css/responsive.css" />
+<link rel="shortcut icon" href="/static/images/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/static/css/aos.css">
+<link rel="icon" href="/static/images/Favicon.png" type="image/png" sizes="32x32">
+<!-- Colorbox -->
+<link rel="stylesheet" href="/static/css/colorbox.css">
+<link rel="stylesheet" href="https://use.typekit.net/csf4rdv.css"> 
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+<body>
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        	<div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<img src="/static/images/close-icon.png">
+			  </button>
+			</div>
+            <div class="modal-body">             
+                     <iframe id="cartoonVideo" class="embed-responsive-item" width="100%" height="500" src="https://www.youtube.com/embed/gU4nbX4eyKM" allowfullscreen=""></iframe>
+                </div> <div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-xs-8" data-aos="fade-up" data-aos-duration="1500">
+				<img src="/static/images/header-logo.png"/>
+			</div>
+			<div class="col-sm-8 col-xs-4" data-aos="fade-up" data-aos-duration="1500">
+				<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <!-- <a class="navbar-brand" href="#"><img src="/static/images/header-logo.png"/></a> -->
+				    </div>
+				    <div class="collapse navbar-collapse" id="myNavbar">
+				      <ul class="nav navbar-nav navbar-right">
+
+                <%for (var i=0; i < mainhadder.length; i++) {%>
+				        <li class="dropdown"><a  class="<%=i==0?"active":""%>  dropdown-toggle" href="<%=mainhadder[i].url%>" data-toggle="dropdown"><%=mainhadder[i].heading%><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                <%for (var j=0; j < hadder.length; j++) {
+                  if(mainhadder[i]._id == hadder[j].category){%>
+                    <li><a href="<%=hadder[j].url%>"><%=hadder[j].title%></a></li>
+                    <!-- <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li> -->
+                    <%}}%>
+                  </ul>
+                  </li>
+                <%}%>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="banner">
+	<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+		<div class="overlay"></div>
+		<ol class="carousel-indicators">
+
+      <%for (var i=0; i < homebanner.length; i++) {%>
+		   	<li data-target="#bs-carousel" data-slide-to="0" class="<%=i==0?"active":""%>"></li>
+         <%}%>
+		    <!-- <li data-target="#bs-carousel" data-slide-to="1"></li>
+		    <li data-target="#bs-carousel" data-slide-to="2"></li> -->
+		 </ol>
+		 <div class="carousel-inner">
+      
+      <%for (var i=0; i < homebanner.length; i++) {%>
+		    <div class="item slides <%=i==0?"active":""%>">
+		      	<img alt="<%=homebanner[i].alt%>" src="<%=homebanner[i].image.replace('public', '/static')%>"/>
+		      	<div class="carousel-caption" data-aos="fade-up" data-aos-duration="1500">
+		      		<p><%=homebanner[i].name%></p>
+		      		<h5><%=homebanner[i].subheading%></h5>
+		      		<a href="<%=homebanner[i].url%>" class="theme-btn btn-style-two"> <span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+		      	</div>
+		    </div>
+        <%}%>
+		    <!-- <div class="item slides">
+		      	<img src="/static/images/banner.jpg"/>
+		      	<div class="carousel-caption" data-aos="fade-up" data-aos-duration="1500">
+		      		<p>Leading Innovators in Senior Care</p>
+		      		<h5>An imperative part of the leading Max Group</h5>
+		      		<a href="#" class="theme-btn btn-style-two"> <span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+		      	</div>
+		    </div>
+		    <div class="item slides">
+		      	<img src="/static/images/banner.jpg"/>
+		      	<div class="carousel-caption" data-aos="fade-up" data-aos-duration="1500">
+		      		<p>Leading Innovators in Senior Care</p>
+		      		<h5>An imperative part of the leading Max Group</h5>
+		      		<a href="#" class="theme-btn btn-style-two"> <span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+		      	</div>
+		    </div> -->
+	  	</div> 
+	</div>
+</div>
+
+<%for (var i=0; i < about.length; i++) {%>
+<div class="welcome-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="welcome-div" data-aos="fade-up" data-aos-duration="1500">
+					<div class="welcome-leftdiv">
+						<img alt="<%=about[i].alt%>" src="<%=about[i].image.replace('public', '/static')%>"/>
+					</div>
+					<div class="welcome-rightdiv">
+						<!-- <h1>Welcome to  <br> max india limited</h1> -->
+						<h1><%-about[i].heading%></h1>
+						<div class="underline"></div>
+						<p><%-about[i].home_description%></p>
+						<a href="/about" class="theme-btn btn-style-one"> <span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%}%>
+<div class="ourcorevalue-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<h2>Our Core Values</h2>
+				<div class="underlineorange"></div>
+			</div>
+		</div>
+		<div class="row">
+
+<%for (var i=0; i < core.length; i++) {%>
+			<div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="ourcorevalue-div">
+					<div class="ourcorevalue-leftdiv">
+						<img alt="<%=core[i].alt%>" src="<%=core[i].image.replace('public', '/static')%>"/>
+					</div>
+					<div class="ourcorevalue-rightdiv">
+						<h3><%=core[i].heading%></h3>
+						<p><%=core[i].description%></p>
+						<h5><%=core[i].feature%></h5>
+					</div>
+				</div>
+			</div>
+      <%}%>
+			<!-- <div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="ourcorevalue-div">
+					<div class="ourcorevalue-leftdiv">
+						<img src="/static/images/ourcorevalue-icon2.png"/>
+					</div>
+					<div class="ourcorevalue-rightdiv">
+						<h3>Excellence</h3>
+						<p>We gather the experts and the expertise to deliver the best solutions for life’s many moments of truth. We never settle for good enough.</p>
+						<h5>Expertise, Dependability, Entrepreneurship, Business Performance</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="ourcorevalue-div">
+					<div class="ourcorevalue-leftdiv">
+						<img src="/static/images/ourcorevalue-icon3.png"/>
+					</div>
+					<div class="ourcorevalue-rightdiv">
+						<h3>Credibility</h3>
+						<p>We give you our word and we stand by it. No matter what. A “NO” uttered with the deepest conviction is better than a “YES” merely uttered to please, or worse..</p>
+						<h5>Transparency, Integrity, Respect, Governance</h5>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<a href="/core" class="theme-btn btn-style-two"><span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="leadership-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<h3>Leadership speak</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8" data-aos="fade-up" data-aos-duration="1500">
+				<img src="/static/images/video-big-img.jpg" class="leadeship-bigvideo" />
+				<div class="carevideo">
+					<div class="video-main">
+					  <div class="promo-video">
+						<div class="waves-block">
+						  <div class="waves wave-1"></div>
+						  <div class="waves wave-2"></div>
+						  <div class="waves wave-3"></div>
+						</div>
+					  </div>
+					  <a href="#" data-toggle="modal" data-target="#videoModal" onclick="Vid('<%=maintestimonial.url%>')" class="video video-popup mfp-iframe" data-lity="">
+						  <i class="fa fa-play"></i></a>
+					</div> 
+				</div>
+			</div>
+			<div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="leadership-leftcontent">
+					<p><%=maintestimonial.testimonial%></p>
+					<h5><%=maintestimonial.name%></h5>
+					<h6><%=maintestimonial.designation%></h6>
+				</div>
+			</div>
+		</div>
+
+    <div class="row">
+    <%for (var i=0; i < leadership.length; i++) {
+      if(leadership[i].name !== maintestimonial.name){%>
+        <div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+          <div class="leadership-commoncontent">
+            <img src="<%=leadership[i].image.replace('public', '/static')%>" />
+            <div class="carevideo1">
+            <div class="video-main">
+              <div class="promo-video">
+              <div class="waves-block">
+                <div class="waves1 wave-1"></div>
+                <div class="waves1 wave-2"></div>
+                <div class="waves1 wave-3"></div>
+              </div>
+              </div>
+              <a href="#"  data-toggle="modal" data-target="#videoModal" onclick="Vid('<%=leadership[i].url%>')" class="video video-popup mfp-iframe" data-lity="">
+                <i class="fa fa-play"></i></a>
+            </div> 
+          </div>
+            <p><%=leadership[i].testimonial%></p>
+            <h5><%=leadership[i].name%></h5>
+          </div>
+        </div>
+      <%}}%>
+    </div>
+
+    
+	</div>
+</div>
+<div class="investorrelations-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<h2>Investor Relations</h2>
+			</div>
+			<div class="col-sm-7" data-aos="fade-down" data-aos-duration="1500">
+				<h4>Latest Share/Stock Price </h4>
+				<div class="investorrelations-div">
+					<div class="investorrelations-leftdiv">
+						<p>NSE: MAXIND</p>
+						<h3>77.40 <span>INR</span></h3>
+						<h5>+0.60 (0.78%) <i class="fa fa-long-arrow-up" aria-hidden="true"></i> today</h5>
+					</div>
+					<div class="investorrelations-rightdiv">
+						<p>BOM: 543223</p>
+						<h3>77.05 <span>INR</span></h3>
+						<h5>−0.25 (0.32%) <i class="fa fa-long-arrow-down" aria-hidden="true"></i> today</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-5" data-aos="fade-up" data-aos-duration="1500">
+				<div class="keyfinancialdiv">
+					<h3><%=investor[0].title%><img src="/static/images/orange-right.png"/></h3>
+					<ul>
+            <%for (var i=1; i < investor.length; i++) {%>
+						<li><%=investor[i].title%></li>
+            <%}%>
+						<!-- <li>Investor Relations</li>
+						<li>Investor Call Transcript</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="driving-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<h3>Driving innovations</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6" data-aos="fade-up" data-aos-duration="1500">
+				<img src="<%=innovation[0].mainimage.replace('public', '/static')%>"/>
+			</div>
+			<div class="col-sm-6" data-aos="fade-up" data-aos-duration="1500">
+				<div class="driving-content-div">
+					<h4><%=innovation[0].heading%></h4>
+					<h5><%=innovation[0].subheading%></h5>
+					<p><%=innovation[0].description%></p>
+					<div class="logosdiv">
+						<ul>
+							<li><img src="<%=innovation[0].image.replace('public', '/static')%>"/></li>
+							<li><img src="<%=innovation[0].image1.replace('public', '/static')%>"/></li>
+							<li><img src="<%=innovation[0].image2.replace('public', '/static')%>"/></li>
+							<li><img src="<%=innovation[0].image3.replace('public', '/static')%>"/></li>
+						</ul>
+					</div>
+					<a href="<%=innovation[0].url%>" class="theme-btn btn-style-two"><span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="corporate-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="corporate-div">
+					<div class="row">
+					<div class="col-sm-6" data-aos="fade-up" data-aos-duration="1500">
+						<div class="">
+							<h3>Corporate Performance</h3>
+						</div>
+					</div>
+					<div class="col-sm-6" data-aos="fade-up" data-aos-duration="1500">
+						<div id="yearslider" class="offers1">
+			             
+              <%for (var i=0; i < corporate.length; i++) {%>   
+              <div class="item">
+			                	<span><%=corporate[i].code%></span>
+			                	<h5><%=corporate[i].heading%></h5>
+			                </div>
+<%}%>
+			                <!-- <div class="item">
+			                	<span>Q3 FY21</span>
+			                	<h5>New Care Home launched in GK</h5>
+			                </div>
+			                <div class="item">
+			                	<span>Q3 FY21</span>
+			                	<h5>New Care Home launched in GK</h5>
+			                </div>
+			                <div class="item">
+			                	<span>Q3 FY21</span>
+			                	<h5>New Care Home launched in GK</h5>
+			                </div> -->
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="maxfoundation-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="maxfoundation-div">
+						<img src="/static/images/max-foundation-img.jpg" class="max-foundation-img" data-aos="fade-up" data-aos-duration="1500"/>
+						<div class="maxfoundation-content" data-aos="fade-right" data-aos-duration="1500">
+							<img src="/static/images/max-foundation-logo.png" class="foundation-logo" />
+							<p>Launched in 2008, Max India Foundation (MIF) represents the Max Group’s social responsibility efforts. It is focussed on the creation of opportunities by empowering children with an education and sustainable livelihood skills.</p>
+							<div class="maxfoundation-cross">
+								<div class="maxfoundation-crossleft">
+									<img src="/static/images/people-icon.png"/>
+									<h5>34</h5>
+									<span>Lakh People Benefitted </span>
+								</div>
+								<div class="maxfoundation-crossleft">
+									<img src="/static/images/location-big-icon.png"/>
+									<h5>800</h5>
+									<span>Location </span>
+								</div>
+							</div>
+							<a href="#" class="theme-btn btn-style-one"><span class="txt">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div class="awards-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<h3>Awards</h3>
+			</div>
+
+      <%for (var i=0; i < awards.length; i++) {%> 
+			<div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="awards-div">
+					<img src="<%=awards[i].image.replace('public', '/static')%>"/>
+					<h4><%=awards[i].heading%></h4>
+					<p><%=awards[i].description%></p>
+				</div>
+			</div>
+      <%}%>
+			<!-- <div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="awards-div">
+					<img src="/static/images/awards-img2.png"/>
+					<h4>Antara’s Campaign</h4>
+					<p>Antara’s Campaign – Senior Care Recognizing India’s other Demographic Dividend – along with our PR agency On Purpose, was recognized by e4m as one of the top 25 PR campaigns of 2021</p>
+				</div>
+			</div>
+			<div class="col-sm-4" data-aos="fade-up" data-aos-duration="1500">
+				<div class="awards-div">
+					<img src="/static/images/awards-img3.png"/>
+					<h4>PORTER PRIZE</h4>
+					<p>Max India received the Porter Prize 2014. The Prize evaluates companies based on value creation, innovation and strategy.</p>
+				</div>
+			</div> -->
+			<div class="col-sm-12 text-center">
+				<a href="#" class="theme-btn btn-style-two"><span class="txt">See All <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<%for (var i=0; i < staticcontent.length; i++) {
+  if(staticcontent[i].heading == "ENGAGE WITH US @MAXGROUP"){%> 
+<div class="twitter-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" data-aos="fade-up" data-aos-duration="1500">
+				<img src="<%=staticcontent[i].image.replace('public', '/static')%>" />
+				<h3><%=staticcontent[i].heading%></h3>
+				<h5><%=staticcontent[i].description%></h5>
+				<p><%=staticcontent[i].home_description%></p>
+			</div>
+		</div>
+	</div>
+</div>
+<%}}%>
+<div class="footer-main">
+	<div class="container">
+
+    <%for (var i=0; i < footer.length; i++) {%>
+		<div class="row">
+			<div class="col-sm-3" data-aos="fade-up" data-aos-duration="1500">
+				<div class="footer-left">
+					<img src="/static/images/max-footer-logo.png" class="footer-logo"/>
+					<h5><%-footer[i].description%></h5>
+					<h4>Office Info</h4>
+					<!-- <ul>
+						<li><img src="/static/images/phone-icon.png" class="icon" /> +91 11 49376000, +91 11 26324126</li>
+						<li><img src="/static/images/email-icon.png" class="icon"/> info@maxindia.com</li>
+						<li><img src="/static/images/location-icon.png" class="icon"/> MAX INDIA, L21, Max Towers, Plot No. C-001/A/1 Sector – 16B, Noida-201301, Uttar Pradesh</li>
+					</ul> -->
+          <%-footer[i].info%>
+				</div>
+			</div>
+			<div class="col-sm-9" data-aos="fade-up" data-aos-duration="1500">
+				<div class="row">
+					<!-- <div class="col-sm-2">
+						<div class="footer-right">
+							<h4>Company</h4>
+							<ul>
+								<li><a href="#">Overview </a></li>
+								<li><a href="#">Our leadership</a></li>
+								<li><a href="#">Our journey</a></li>
+								<li><a href="#">Awards</a></li>
+								<li><a href="#">Our brands </a></li>
+								<li><a href="#">CSR</a></li>
+								<li><a href="#">JV Partnerships </a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="footer-right">
+							<h4>Our Business</h4>
+							<ul>
+								<li><a href="#">Antara Senior Care</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="footer-right">
+							<h4>Investors</h4>
+							<ul>
+								<li><a href="#">Overview</a></li>
+								<li><a href="#">Financials </a></li>
+								<li><a href="#">Stakeholder info</a></li>
+								<li><a href="#">Disclosures</a></li>
+								<li><a href="#">Annual reports</a></li>
+								<li><a href="#">Post ballot notice</a></li>
+								<li><a href="#">FAQ's</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="footer-right">
+							<h4>Resources</h4>
+							<ul>
+								<li><a href="#">In the News</a></li>
+								<li><a href="#">Press Releases</a></li>
+								<li><a href="#">Media</a></li>
+								<li><a href="#">Blogs</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="footer-right">
+							<h4>Careers</h4>
+							<ul>
+								<li><a href="#">Life at Max</a></li>
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">Gallery</a></li>
+								<li><a href="#">Join us</a></li>
+							</ul>
+						</div>
+					</div> -->
+				
+          <%-footer[i].company%>
+          <%-footer[i].business%>
+          <%-footer[i].investors%>
+          <%-footer[i].resources%>
+          <%-footer[i].careers%>
+        </div>
+			</div>
+		</div>
+<%}%>
+
+	</div>
+	<div class="copyright-div">
+		<p>Copyright 2022, MAX INDIA. All Rights Reserved.</p>
+	</div>
+</div>
+	
+<script type="text/javascript" src="/static/js/jquery-1.12.0.min.js"></script> 
+<script src="/static/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/aos.js"></script> 
+<script type="text/javascript" src="/static/js/custom.js"></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
+
+</body>
+</html>
