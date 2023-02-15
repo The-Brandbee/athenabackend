@@ -15,7 +15,7 @@ var events = {
             .then((postResult) => {
                 res.render('cms/events-add.ejs', {
                     response: 'success',
-                    msg: 'Banner added successfully.'
+                    msg: 'Event Added successfully.'
                 });
             }).catch(err => {
                 res.render('cms/events-add.ejs', {

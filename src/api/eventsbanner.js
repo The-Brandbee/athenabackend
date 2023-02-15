@@ -11,10 +11,8 @@ var eventsbanner = {
     add: function (params, cb) {
         var createData = {
           heading:params.heading,
-        //   url:params.url,
+          url:params.url,
           description: params.description,
-          home_description: params.home_description,
-          // alt:params.alt,
           alt: params.alt,
         };
         console.log({params})
@@ -71,10 +69,8 @@ var eventsbanner = {
     update: function (params, cb) {
       var createData = {
         heading:params.heading,
-        // url:params.url,
+        url:params.url,
         description: params.description,
-        home_description: params.home_description,
-        // priority:params.priority,
         alt: params.alt,
       };
   console.log({params})

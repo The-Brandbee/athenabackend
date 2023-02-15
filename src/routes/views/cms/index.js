@@ -28,6 +28,7 @@ var partnership = require('./partnership.js');
 var currentpatner = require('./currentpatner.js');
 var partnersfeature = require('./partnersfeature.js');
 var events = require('./events.js');
+var news = require('./news.js');
 var eventsbanner = require('./eventsbanner.js');
 var overview = require('./overview.js');
 var testimonial = require('./testimonial');
@@ -132,6 +133,10 @@ module.exports = function(app) {
     app.get('/cms/events/add', auth.checkSessionUser,auth.checkAccessControl, events.add,error);
     app.get('/cms/events/manage', auth.checkSessionUser,auth.checkAccessControl, events.manage,error);
     app.get('/cms/events/edit/:id', auth.checkSessionUser,auth.checkAccessControl, events.edit, error);
+
+    app.get('/cms/news/add', auth.checkSessionUser,auth.checkAccessControl, news.add,error);
+    app.get('/cms/news/manage', auth.checkSessionUser,auth.checkAccessControl, news.manage,error);
+    app.get('/cms/news/edit/:id', auth.checkSessionUser,auth.checkAccessControl, news.edit, error);
 
     app.get('/cms/eventsbanner/add', auth.checkSessionUser,auth.checkAccessControl, eventsbanner.add,error);
     app.get('/cms/eventsbanner/manage', auth.checkSessionUser,auth.checkAccessControl, eventsbanner.manage,error);
@@ -290,6 +295,10 @@ module.exports = function(app) {
     app.post('/cms/events/add', auth.checkSessionUser, events.addPost,error);
     app.post('/cms/events/edit/:id', auth.checkSessionUser, events.editPost, error);
     app.post('/cms/events/delete', auth.checkSessionUser, events.deletePost, error);
+
+    app.post('/cms/news/add', auth.checkSessionUser, news.addPost,error);
+    app.post('/cms/news/edit/:id', auth.checkSessionUser, news.editPost, error);
+    app.post('/cms/news/delete', auth.checkSessionUser, news.deletePost, error);
 
     app.post('/cms/eventsbanner/add', auth.checkSessionUser, eventsbanner.addPost,error);
     app.post('/cms/eventsbanner/edit/:id', auth.checkSessionUser, eventsbanner.editPost, error);

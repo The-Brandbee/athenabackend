@@ -52,12 +52,12 @@
                     <div class="page-bar">
                         <div class="page-title-breadcrumb">
                             <div class=" pull-left">
-                                <div class="page-title">Add Upcoming events</div>
+                                <div class="page-title">Add News</div>
                             </div>
                             <ol class="breadcrumb page-breadcrumb pull-right">
                                 <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/cms/dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
                                 </li>
-                                <li class="active">Add Upcoming events</li>
+                                <li class="active">Add News</li>
                             </ol>
                         </div>
                     </div>
@@ -72,33 +72,29 @@
                                     </div>
                                     <div class="card-body row">
                                         <div class="col-lg-3 p-t-20">
-                                           <label>Event Name</label>
-                                           <input type="text" name="_id" value="<%=events._id%>" style="display:none;">
-                                            <input type="text" name="eventname" value="<%=events.eventname%>" placeholder="Event name"  class="form-control input-height"/>
+                                           <label>News Heading</label>
+                                           <input type="text" name="_id" value="<%=news._id%>" style="display:none;">
+                                            <input type="text" name="heading" value="<%=news.heading%>" placeholder="Event name"  class="form-control input-height"/>
                                         </div>
                                         <div class="col-lg-3 p-t-20">
                                             <label>Date</label>
-                                             <input type="date" name="date" value="<%=events.date%>" placeholder=""  class="form-control input-height"/>
+                                             <input type="date" name="date" value="<%=news.date%>" placeholder=""  class="form-control input-height"/>
                                          </div>
                                         <div class="col-lg-3 p-t-20">
-                                            <label>Time</label>
-                                             <input type="time" name="time" value="<%=events.time%>" placeholder="time" class="form-control input-height"/>
-                                         </div>
-                                         <div class="col-lg-3 p-t-20">
-                                            <label>Place</label>
-                                             <input type="text" name="place" value="<%=events.place%>" placeholder="Place" class="form-control input-height"/>
+                                            <label>Url</label>
+                                             <input type="text" name="url" value="<%=news.url%>" placeholder="ur;" class="form-control input-height"/>
                                          </div>
                                         <div class="col-lg-3 p-t-20">
                                                 <label>Image</label>
                                                 <input type="file" name="image" class="form-control input-height" accept="image/*" />
                                                 <span class="error error_file" style="display: none;" id="error_file">File size too large</span>
-                                                <%if(events.image){%>
-                                                    <img width="40" src="<%=events.image.replace('public', '/static')%>">
+                                                <%if(news.image){%>
+                                                    <img width="40" src="<%=news.image.replace('public', '/static')%>">
                                                     <%}%>
                                         </div>
                                         <div class="col-lg-3 p-t-20">
                                             <label>Alt</label>
-                                                <input type="text" name="alt" value="<%=events.alt%>" placeholder="alt" class="form-control input-height"/>
+                                                <input type="text" name="alt" value="<%=news.alt%>" placeholder="alt" class="form-control input-height"/>
                                         </div>
 
                                         <div class="col-lg-12 p-t-20 text-center">

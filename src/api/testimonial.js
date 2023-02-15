@@ -10,17 +10,10 @@ var utils = require("../lib/utils");
 var testimonial = {
   add: function (params, cb) {
     var createData = {
-        title: params.title,
-        desc: params.desc,
-        type:params.type,
-        category: params.category,
-        location: params.location,
-        url: params.url,
-        alt: params.alt,
         name: params.name,
-        position: params.position,
-        designation: params.designation,
-        offering: params.offering,
+        desc: params.desc,
+        shortdesc:params.shortdesc,
+        alt: params.alt,
     };
 
     if (params.files && params.files.image) {
@@ -68,17 +61,10 @@ var testimonial = {
 
   update: function (params, cb) {
     var createData = {
-        title: params.title,
-        desc: params.desc,
-        type:params.type,
-        category: params.category,
-        location: params.location,
-        url: params.url,
-        alt: params.alt,
-        name: params.name,
-        position: params.position,
-        designation: params.designation,
-        offering: params.offering,
+      name: params.name,
+      desc: params.desc,
+      shortdesc:params.shortdesc,
+      alt: params.alt,
     };
 
     if (params.files && params.files.image) {

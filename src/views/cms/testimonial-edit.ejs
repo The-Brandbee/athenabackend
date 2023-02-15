@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-        <title>Antara Senior Living</title>
+        <title>Ethena</title>
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
         <!-- icons -->
@@ -88,47 +88,23 @@
                                                                                                 </div>
 
                                                                                                 <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Designation</label>
-                                                                                                        <input type="text" name="designation" placeholder="Designation" class="form-control input-height"
-                                                                                                                value="<%-testimonial.designation%>" />
+                                                                                                        <label>Session Details</label>
+                                                                                                        <input type="text" name="shortdesc" placeholder="Session Details" class="form-control input-height"
+                                                                                                                value="<%-testimonial.shortdesc%>" />
                                                                                                 </div>
 
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Type</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="type" title="Select Type"
-                                                                                                                tabindex="-98">
-                                                                                                                <option value="" <%=testimonial.type==='' ? 'selected' : '' %>>Select Type</option>
-                                                                                                                <option value="Video" <%=testimonial.type==='Video' ? 'selected' : '' %>>Video</option>
-                                                                                                                <option value="Text" <%=testimonial.type==='Text' ? 'selected' : '' %>>Text</option>
-                                                                                                        </select>
+
+                                                                                                <div
+                                                                                                        class="col-lg-12 p-t-20">
+                                                                                                        <label>Description</label>
+                                                                                                        <textarea
+                                                                                                                name="desc"
+                                                                                                                class="summernote form-control input-height"
+                                                                                                                placeholder="Description"
+                                                                                                                rows="3"><%-testimonial.desc%></textarea>
+                                                                                                </div>
+
                                                                                                 
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Category</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="category" title="Select Category"
-                                                                                                                tabindex="-98">
-                                                                                                                <option value="" <%=testimonial.category==='' ? 'selected' : '' %>>Select Category</option>
-                                                                                                                <option value="residences" <%=testimonial.category==='residences' ? 'selected' : '' %>>Residences</option>
-                                                                                                                <option value="carehomes" <%=testimonial.category==='carehomes' ? 'selected' : '' %>>Care Homes</option>
-                                                                                                                <option value="careathome" <%=testimonial.category==='careathome' ? 'selected' : '' %>>Care At Home</option>
-                                                                                                                <option value="medcareproduct" <%=testimonial.category==='medcareproduct' ? 'selected' : '' %>>MedCare Product</option>
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Location</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="location" title="Select Location"
-                                                                                                                tabindex="-98">
-                                                                                                                <option value="" <%=testimonial.location==='' ? 'selected' : '' %>>Select Location</option>
-                                                                                                                <option value="Dehradun" <%=testimonial.location==='Dehradun' ? 'selected' : '' %>>Dehradun</option>
-                                                                                                                <option value="Noida" <%=testimonial.location==='Noida' ? 'selected' : '' %>>Noida</option>
-                                                                                                                
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
-
                                                                                                 <div class="col-lg-3 p-t-20">
                                                                                                         <label>Image</label>
                                                                                                         <input type="file" name="image" class="form-control input-height" accept="image/*" />
@@ -146,56 +122,6 @@
                                                                                                         <input type="text" name="alt" placeholder="Alt-tag" class="form-control input-height"
                                                                                                         value="<%-testimonial.alt%>"/>
                                                                                                 
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Video
-                                                                                                                URL</label>
-                                                                                                        <input type="text" name="url" placeholder="Video Link" class="form-control input-height"
-                                                                                                                value="<%-testimonial.url%>" />
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Position</label>
-                                                                                                
-                                                                                                        <input type="number" name="position" value="<%-testimonial.position%>" placeholder="position"
-                                                                                                                class="form-control input-height" />
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div
-                                                                                                        class="col-lg-3 p-t-20">
-                                                                                                        <label>Title</label>
-                                                                                                        <input type="text" name="_id" value="<%=testimonial._id%>" style="display:none;">
-                                                                                                        <input type="text"
-                                                                                                                name="title"
-                                                                                                                placeholder="Title"
-                                                                                                                class="form-control input-height"
-                                                                                                                value="<%-testimonial.title%>"  />
-
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Select Offering</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="offering" tabindex="-98">
-                                                                                                                <option value="">Select Offering</option>
-                                                                                                                <%for(var i=0; i< care.length; i++) {%>
-                                                                                                                        <option value="<%-care[i]._id%>" <%=testimonial.offering===care[i]._id ? 'selected' : '' %>>
-                                                                                                                                <%-care[i].title%>
-                                                                                                                        </option>
-                                                                                                                        <%}%>
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div
-                                                                                                        class="col-lg-12 p-t-20">
-                                                                                                        <label>Description</label>
-                                                                                                        <textarea
-                                                                                                                name="desc"
-                                                                                                                class="summernote form-control input-height"
-                                                                                                                placeholder="Description"
-                                                                                                                rows="3"><%-testimonial.desc%></textarea>
                                                                                                 </div>
 
                                                                                                 <div

@@ -6,12 +6,10 @@ var ec = require("../lib/error_consts");
 var Schema = mongoose.Schema;
 
 var aboutSchema = new mongoose.Schema({
-    heading:{ type: String },
-    // url:{ type: String },
-    // subheading:{ type: String },
-    // priority:{ type: Number },
-    description: { type: String },
-    home_description: { type: String },
+    eventname:{ type: String },
+    place:{ type: String },
+    date: { type: String },
+    time: { type: String },
     image:{ type: String },
     alt:{ type: String }
 });

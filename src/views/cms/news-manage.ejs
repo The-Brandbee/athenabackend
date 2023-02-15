@@ -52,12 +52,12 @@
                     <div class="page-bar">
                         <div class="page-title-breadcrumb">
                             <div class=" pull-left">
-                                <div class="page-title">Manage Past Events</div>
+                                <div class="page-title">Manage News</div>
                             </div>
                             <ol class="breadcrumb page-breadcrumb pull-right">
                                 <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/cms/dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
                                 </li>
-                                <li class="active">Manage Past Events</li>
+                                <li class="active">Manage News</li>
                             </ol>
                         </div>
                     </div>
@@ -66,26 +66,26 @@
                         <div class="col-md-12">
                             <div class="card card-topline-aqua">
                                 <div class="card-head">
-                                    <header>All Past Events</header>
+                                    <header>All News</header>
                                 </div>
                                 <div class="card-body ">
                                     <table id="datatable" class="display" style="width:100%;">
                                         <thead>
                                             <tr>
                                                 <th>Heading</th>
-                                                <th>Speaker</th>
+                                                <th>Date</th>
                                                 <th>Image</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <%for (var i = 0; i < eventsbanner.length; i++) {%>
+                                            <%for (var i = 0; i < news.length; i++) {%>
                                             <tr>
-                                                <td><%=eventsbanner[i].heading%></td>
-                                                <td><%=eventsbanner[i].description%></td>
-                                                <td>	 <img src='<%=eventsbanner[i].image?eventsbanner[i].image.replace("public/", "/static/"):""%>' alt="" width="40"> </td>
+                                                <td><%=news[i].heading%></td>
+                                                <td><%=news[i].date%></td>
+                                                <td>	 <img src='<%=news[i].image?news[i].image.replace("public/", "/static/"):""%>' alt="" width="40"> </td>
                                                 <td>
-                                                    <a href="/cms/eventsbanner/edit/<%=eventsbanner[i]._id%>"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                    <a data-toggle="modal" data-id="<%=eventsbanner[i]._id%>" class="delete"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                                    <a href="/cms/news/edit/<%=news[i]._id%>"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                    <a data-toggle="modal" data-id="<%=news[i]._id%>" class="delete"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
                                                 </td>
                                             </tr>
                                             <%}%>
@@ -165,7 +165,7 @@
                     let result = {success: false};
             $.ajax({
                 type: "POST",
-                url: '/cms/eventsbanner/delete',
+                url: '/cms/news/delete',
                 async: false,
                 data: {
                     id: id

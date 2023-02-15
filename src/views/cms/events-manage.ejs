@@ -52,12 +52,12 @@
                     <div class="page-bar">
                         <div class="page-title-breadcrumb">
                             <div class=" pull-left">
-                                <div class="page-title">Manage events</div>
+                                <div class="page-title">Manage Upcoming events</div>
                             </div>
                             <ol class="breadcrumb page-breadcrumb pull-right">
                                 <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/cms/dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
                                 </li>
-                                <li class="active">Manage events</li>
+                                <li class="active">Manage Upcoming events</li>
                             </ol>
                         </div>
                     </div>
@@ -66,22 +66,22 @@
                         <div class="col-md-12">
                             <div class="card card-topline-aqua">
                                 <div class="card-head">
-                                    <header>All events</header>
+                                    <header>All Upcoming events</header>
                                 </div>
                                 <div class="card-body ">
                                     <table id="datatable" class="display" style="width:100%;">
                                         <thead>
                                             <tr>
-                                                <th>Heading</th>
-                                                <th>Description</th>
+                                                <th>Event Name</th>
+                                                <th>Time</th>
                                                 <th>Image</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <%for (var i = 0; i < events.length; i++) {%>
                                             <tr>
-                                                <td><%=events[i].heading%></td>
-                                                <td><%=events[i].description%></td>
+                                                <td><%=events[i].eventname%></td>
+                                                <td><%=events[i].time%></td>
                                                 <td>	 <img src='<%=events[i].image?events[i].image.replace("public/", "/static/"):""%>' alt="" width="40"> </td>
                                                 <td>
                                                     <a href="/cms/events/edit/<%=events[i]._id%>"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>

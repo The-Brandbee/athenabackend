@@ -3,27 +3,26 @@
 var path = require("path");
 var fs = require("fs");
 
-var aboutModel = require("../model/events");
+var aboutModel = require("../model/news");
 var ec = require("../lib/error_consts");
 var utils = require("../lib/utils");
 
-var events = {
+var news = {
     add: function (params, cb) {
         var createData = {
-          eventname:params.eventname,
+          heading:params.heading,
           date:params.date,
-          time: params.time,
-          place: params.place,
+          url: params.url,
           alt: params.alt,
         };
         console.log({params})
     
         if (params.files && params.files.image) {
           var fileName =
-            "events" +
+            "news" +
             params.files.image.md5 +
             path.extname(params.files.image.name);
-          var filePath = "public/uploads/events/" + fileName;
+          var filePath = "public/uploads/news/" + fileName;
     
           fs.writeFile(filePath, params.files.image.data, function (
             err,
@@ -69,19 +68,18 @@ var events = {
 
     update: function (params, cb) {
       var createData = {
-          eventname:params.eventname,
-          date:params.date,
-          time: params.time,
-          place: params.place,
-          alt: params.alt,
+        heading:params.heading,
+        date:params.date,
+        url: params.url,
+        alt: params.alt,
       };
   console.log({params})
       if (params.files && params.files.image) {
         var fileName =
-          "events" +
+          "news" +
           params.files.image.md5 +
           path.extname(params.files.image.name);
-        var filePath = "public/uploads/events/" + fileName;
+        var filePath = "public/uploads/news/" + fileName;
   
         fs.writeFile(filePath, params.files.image.data, function (
           err,
@@ -120,4 +118,4 @@ var events = {
       });
     },
 };
-module.exports = events;
+module.exports = news;

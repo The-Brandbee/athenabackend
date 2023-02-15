@@ -24,6 +24,7 @@ var partnership = require('./partnership.js');
 var currentpatner = require('./currentpatner.js');
 var partnersfeature = require('./partnersfeature.js');
 var events = require('./events.js');
+var news = require('./news.js');
 var eventsbanner = require('./eventsbanner.js');
 var overview = require('./overview.js');
 var testimonial = require('./testimonial');
@@ -102,6 +103,9 @@ module.exports = function(app) {
 
     app.get("/api/events", events.fetchAll, error);
     app.get("/api/events/:id", events.fetchById, error);
+
+    app.get("/api/news", news.fetchAll, error);
+    app.get("/api/news/:id", news.fetchById, error);
 
     app.get("/api/eventsbanner", eventsbanner.fetchAll, error);
     app.get("/api/eventsbanner/:id", eventsbanner.fetchById, error);
@@ -247,6 +251,10 @@ module.exports = function(app) {
     app.post("/api/events/add",auth.checkSessionUser,auth.checkAccessControl,events.add,error);
     app.post("/api/events/update", auth.checkSessionUser,auth.checkAccessControl, events.update, error);
     app.post("/api/events/delete",auth.checkSessionUser,auth.checkAccessControl,events.delete,error);
+
+    app.post("/api/news/add",auth.checkSessionUser,auth.checkAccessControl,news.add,error);
+    app.post("/api/news/update", auth.checkSessionUser,auth.checkAccessControl, news.update, error);
+    app.post("/api/news/delete",auth.checkSessionUser,auth.checkAccessControl,news.delete,error);
         
     app.post("/api/eventsbanner/add",auth.checkSessionUser,auth.checkAccessControl,eventsbanner.add,error);
     app.post("/api/eventsbanner/update", auth.checkSessionUser,auth.checkAccessControl, eventsbanner.update, error);

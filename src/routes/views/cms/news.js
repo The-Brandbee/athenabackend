@@ -3,22 +3,22 @@ var request = require('request');
 var common = require('./common');
 var moment = require('moment');
 
-var testimonial = {
+var news = {
     add: function(req, res, next) {
-        res.render('cms/testimonial-add.ejs', {
+        res.render('cms/news-add.ejs', {
             response: ''
         });
     },
 
     addPost: function(req, res, next) {             
-        common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/testimonial/add', req.headers.cookie, 'POST', req.body, req.files)
+        common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/news/add', req.headers.cookie, 'POST', req.body, req.files)
             .then((postResult) => {
-                res.render('cms/testimonial-add.ejs', {
+                res.render('cms/news-add.ejs', {
                     response: 'success',
-                    msg: 'Data added successfully.'
+                    msg: 'News Added successfully.'
                 });
             }).catch(err => {
-                res.render('cms/testimonial-add.ejs', {
+                res.render('cms/news-add.ejs', {
                     response: 'error',
                     msg: err
                 });
@@ -27,12 +27,12 @@ var testimonial = {
 
     manage: function(req, res, next) {
 
-        common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/testimonial', req.headers.cookie, 'GET')
+        common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/news', req.headers.cookie, 'GET')
             .then((result) => {
-                res.render('cms/testimonial-manage.ejs', { testimonial: result,moment: moment });
+                res.render('cms/news-manage.ejs', { news: result,moment: moment });
             }).catch(err => {
                 console.log(err);
-                res.render('cms/testimonial-manage.ejs');
+                res.render('cms/news-manage.ejs');
             });
     },
 
@@ -45,18 +45,18 @@ var testimonial = {
         }
 
         var requestData = [
-            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/testimonial/' + req.params.id, req.headers.cookie, 'GET')
+            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/news/' + req.params.id, req.headers.cookie, 'GET')
         ];
 
         Promise.all(requestData).then((data) => {
-            res.render('cms/testimonial-edit.ejs', {
+            res.render('cms/news-edit.ejs', {
                // _csrf: req.csrfToken(),
-               testimonial: data[0],
+               news: data[0],
                 response: ''
             });
 
         }).catch(err => {
-            res.render('cms/testimonial-edit.ejs', {
+            res.render('cms/news-edit.ejs', {
                 response: 'error',
                 msg: err
             });
@@ -65,18 +65,18 @@ var testimonial = {
 
     editPost: function(req, res, next) {
         var requestData = [
-            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/testimonial/update', req.headers.cookie, 'POST', req.body, req.files)
+            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/news/update', req.headers.cookie, 'POST', req.body, req.files)
         ];
         Promise.all(requestData).then((data) => {
-            res.render('cms/testimonial-edit.ejs', {
-                testimonial: data[0],
+            res.render('cms/news-edit.ejs', {
+                news: data[0],
                 response: 'success',
                 msg: 'Updated successfully.'
             });
 
         }).catch(err => {
            // console.log(err);
-            res.render('cms/testimonial-edit.ejs', {
+            res.render('cms/news-edit.ejs', {
                 response: 'error',
                 msg: err
             });
@@ -92,7 +92,7 @@ var testimonial = {
         }
     
         var requestData = [
-            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/testimonial/delete', req.headers.cookie, 'POST', req.body),
+            common.apiRequest(req.protocol + '://'  + req.get('host') + '/api/news/delete', req.headers.cookie, 'POST', req.body),
         
         ];
     
@@ -109,4 +109,4 @@ var testimonial = {
       
     },
 };
-module.exports = testimonial;
+module.exports = news;

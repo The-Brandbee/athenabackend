@@ -4,18 +4,11 @@ var mongoose = require("mongoose");
 var ec = require("../lib/error_consts");
 
 var testimonialSchema = new mongoose.Schema({
-  title: { type: String },
+  name: { type: String },
   image: { type: String },
   alt: {type: String},
   desc: { type: String },
-  type: {type:String},
-  category: {type: String},
-  location: {type: String},
-  url: {type: String},
-  name: {type: String},
-  position: {type: Number},
-  designation: {type: String},
-  offering: {type: String},
+  shortdesc: {type:String},
 });
 var testimonialModel = mongoose.model("testimonial", testimonialSchema);
 

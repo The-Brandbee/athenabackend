@@ -15,7 +15,7 @@ var blogs = {
             .then((postResult) => {
                 res.render('cms/blogs-add.ejs', {
                     response: 'success',
-                    msg: 'Banner added successfully.'
+                    msg: 'Added successfully.'
                 });
             }).catch(err => {
                 res.render('cms/blogs-add.ejs', {

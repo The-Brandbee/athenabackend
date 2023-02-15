@@ -8,13 +8,13 @@ var Schema = mongoose.Schema;
 var aboutSchema = new mongoose.Schema({
     heading:{ type: String },
     url:{ type: String },
-    description: { type: String },
+    date: { type: String },
     image:{ type: String },
     alt:{ type: String }
 });
-var aboutModel = mongoose.model("eventsbanner", aboutSchema);
+var aboutModel = mongoose.model("news", aboutSchema);
 
-var eventsbanner = {
+var news = {
     create: function (params, cb) {
         if (!params) {
           return cb(
@@ -112,4 +112,4 @@ var eventsbanner = {
     },
       
 };
-module.exports = eventsbanner;
+module.exports = news;

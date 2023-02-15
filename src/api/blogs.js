@@ -111,7 +111,7 @@ var blogs = {
       //   url:params.url,
         description: params.description,
         home_description: params.home_description,
-description2: params.description2,
+        description2: params.description2,
         date:params.date,
         alt: params.alt,
         url: params.url,

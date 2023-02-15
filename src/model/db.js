@@ -4,10 +4,7 @@ var mongoose = require('mongoose');
 var config = require('../config/config');
 
 
-var dburl = "mongodb://" + config.mongodb.host +
-        ":" + config.mongodb.port + "/" + config.mongodb.app_db +
-        "?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=" +
-        config.mongodb.auth_db;
+var dburl = 'mongodb+srv://vikrambhanwala:vikrambhanwala@cluster0.u57bw9e.mongodb.net/test';
 
 mongoose.connect(dburl, { 
     useNewUrlParser: true,

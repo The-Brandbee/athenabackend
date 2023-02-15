@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-        <title>Antara Senior Living</title>
+        <title>Ethena</title>
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
         <!-- icons -->
@@ -83,57 +83,31 @@
 
                                                                                                 <div class="col-lg-3 p-t-20">
                                                                                                         <label>Name</label>
-                                                                                                        <input type="text" name="name" placeholder="Name" class="form-control input-height" />
+                                                                                                        <input type="text" name="name" placeholder="Name" required class="form-control input-height" />
                                                                                                 </div>
-                                                                                                
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Designation</label>
-                                                                                                        <input type="text" name="designation" placeholder="Designation" class="form-control input-height" />
+   
+
+
+                                                                                                <div
+                                                                                                        class="col-lg-3 p-t-20">
+                                                                                                        <label>Session Details</label>
+
+                                                                                                        <input type="text"
+                                                                                                                name="shortdesc"
+                                                                                                                placeholder="Session Deatils"
+                                                                                                                class="form-control input-height" />
+
                                                                                                 </div>
 
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Type</label>
-                                                                                                        <select class="form-control input-height" name="type" title="Select Type"
-                                                                                                                tabindex="-98">
-                                                                                                                <option value="">
-                                                                                                                        Select Type
-                                                                                                                </option>
-                                                                                                                <option value="video">
-                                                                                                                        Video
-                                                                                                                </option>
-                                                                                                                <option value="text">
-                                                                                                                        Text
-                                                                                                                </option>
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
 
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Category</label>
-                                                                                                        <select class="form-control input-height" name="category" title="Select Category"
-                                                                                                                tabindex="-98" >
-                                                                                                                <option value="">Select Category</option>
-                                                                                                                <option value="residences">Residences</option>
-                                                                                                                <option value="carehomes">Care Homes</option>
-                                                                                                                <option value="careathome">Care At Home</option>
-                                                                                                                <option value="medcareproduct">MedCare Product</option>
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Location</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="location" title="Select Location"
-                                                                                                                tabindex="-98">
-                                                                                                                <option value="">Select Location</option>
-                                                                                                                <option value="Dehradun">
-                                                                                                                        Dehradun
-                                                                                                                </option>
-                                                                                                                <option value="Noida">
-                                                                                                                        Noida
-                                                                                                                </option>
-                                                                                                        </select>
-                                                                                                
+                                                                                                <div
+                                                                                                        class="col-lg-12 p-t-20">
+                                                                                                        <label>Description</label>
+                                                                                                        <textarea
+                                                                                                                name="desc"
+                                                                                                                class="summernote form-control input-height"
+                                                                                                                placeholder="Description"
+                                                                                                                rows="3"></textarea>
                                                                                                 </div>
 
                                                                                                 <div class="col-lg-3 p-t-20">
@@ -151,51 +125,7 @@
                                                                                                 
                                                                                                 </div>
                                                                                                 
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Video URL</label>
-                                                                                                        <input type="text" name="url" placeholder="Video Link" class="form-control input-height" />
-                                                                                                </div>
 
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Position</label>
-                                                                                                
-                                                                                                        <input type="number" name="position" placeholder="position" class="form-control input-height" />
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div
-                                                                                                        class="col-lg-3 p-t-20">
-                                                                                                        <label>Title</label>
-
-                                                                                                        <input type="text"
-                                                                                                                name="title"
-                                                                                                                placeholder="Title"
-                                                                                                                class="form-control input-height" />
-
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-3 p-t-20">
-                                                                                                        <label>Select Offering</label>
-                                                                                                        <select class="form-control input-height" data-live-search="true" name="offering" tabindex="-98">
-                                                                                                                <option value="">Select Offering</option>
-                                                                                                                <%for(var i=0; i< care.length; i++) {%>
-                                                                                                                        <option value="<%-care[i]._id%>">
-                                                                                                                                <%-care[i].title%>
-                                                                                                                        </option>
-                                                                                                                        <%}%>
-                                                                                                        </select>
-                                                                                                
-                                                                                                </div>
-
-                                                                                                <div
-                                                                                                        class="col-lg-12 p-t-20">
-                                                                                                        <label>Description</label>
-                                                                                                        <textarea
-                                                                                                                name="desc"
-                                                                                                                class="summernote form-control input-height"
-                                                                                                                placeholder="Description"
-                                                                                                                rows="3"></textarea>
-                                                                                                </div>
 
                                                                                                 <div
                                                                                                         class="col-lg-12 p-t-20 text-center">

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-        <title>Antara Senior Living</title>
+        <title>Athena</title>
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
         <!-- icons -->
@@ -90,10 +90,10 @@
                                                                                                                 </th>
                                                                                                                 <th>Image 
                                                                                                                 </th>
-                                                                                                                <th>Category
+                                                                                                                <th>Session
                                                                                                                 </th>
-                                                                                                                <th>Name</th>
-                                                                                                                <th>Location</th>
+                                                                                                                <th>Description</th>
+                                                                                                                
                                                                                                         </tr>
                                                                                                 </thead>
                                                                                                 <tbody>
@@ -103,7 +103,7 @@
                                                                                                                 i++) {%>
                                                                                                                 <tr>
                                                                                                                         <td>
-                                                                                                                                <%-testimonial[i].title%>
+                                                                                                                                <%-testimonial[i].name%>
                                                                                                                         </td>
 
                                                                                                                         <td>
@@ -119,14 +119,12 @@
                                                                                                                                         <%}%>
                                                                                                                         </td>
                                                                                                                         <td>
-                                                                                                                                <%-testimonial[i].category%>
+                                                                                                                                <%-testimonial[i].shortdesc%>
                                                                                                                         </td>
                                                                                                                         <td>
-                                                                                                                                <%-testimonial[i].name%>
+                                                                                                                                <%-testimonial[i].desc%>
                                                                                                                         </td>
-                                                                                                                        <td>
-                                                                                                                                <%-testimonial[i].location%>
-                                                                                                                        </td>
+                                                                                                                       
                                                                                                                         <td>
                                                                                                                                 <a
                                                                                                                                         href="/cms/testimonial/edit/<%=testimonial[i]._id%>"><button
