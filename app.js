@@ -15,6 +15,7 @@ const session = require('express-session');
 const {v4: uuid} = require('uuid');
 var fs = require('fs');
 var config = require('./src/config/config');
+const cors = require('cors');
 
 var app = express();
 
@@ -73,6 +74,13 @@ app.use(function(req, res, next) {
     res.locals.passport = req.session.passport;
     next();
 });
+
+app.use(cors());
+const corsOptions = {
+    origin: "http://localhost:3000"
+};
+
+
 
 require('./src/config/passport')(app);
 require('./src/routes')(app);
