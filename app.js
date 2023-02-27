@@ -29,6 +29,14 @@ app.set('views', __dirname + '/src/views');
 app.set('view engine', 'ejs');
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
+app.set('port', 7036);
+app.use('/public', express.static('public'));
+
+
+// app.listen(7036);
+// app.on('error', onError);
+// app.on('listening', onlistening);
+
 app.use(fileUpload({
     parseNested: true
 }));
@@ -89,5 +97,7 @@ function assignId (req, res, next) {
     req.id = uuid();
     next()
 }
+// app.listen(7036, '127.0.0.1');
+// console.log('Node server running on port 3000');
 
 module.exports = app;

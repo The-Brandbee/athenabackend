@@ -13,6 +13,7 @@ var blogsSchema = new mongoose.Schema({
     description: { type: String },
     home_description:  { type: String },
     description2:  { type: String },
+    main_desc:  { type: String },
     date: { type: String },
     image:{ type: String },
     alt:{ type: String },
