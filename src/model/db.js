@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var config = require('../config/config');
 
 
-var dburl = 'mongodb+srv://athena-vulcan:mYplqnc78hVdr3C8@florence.wxcox.mongodb.net/athenaSite';
+var dburl = 'mongodb+srv://test:Ht4lFQ3BIMAcJB9t@maindatabase.xvq9xth.mongodb.net/maindatabase';
 
 mongoose.connect(dburl, { 
     useNewUrlParser: true,

@@ -1,5 +1,5 @@
 {
-  "name": "athena",
+  "name": "csp",
   "version": "1.0.0",
   "description": "Backend Panel",
   "main": "./bin/www",
